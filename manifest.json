@@ -3,10 +3,6 @@
   "name": "Hello Extensions of the world",
   "description": "Base Level Extension",
   "version": "1.0",
-  "action": {
-    "default_popup": "hello.html",
-    "default_icon": "helloextensionimg.png"
-  }
 
   "content_scripts":
   [
