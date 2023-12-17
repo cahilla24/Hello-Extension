@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <style>
+    * {
+      font-size: x-large;
+    }
+  </style>
+</head>
+
+<body style="min-width:300px;min-height:300px"></body>
+<input type="text" name="y_values" value="100" size="3">
+<input type="text" name="y_values" value="130" size="3">
+<input type="text" name="y_values" value="80" size="3"><br>
+<button py-click="plot()">submit</button>
+<div id="plotDiv"></div>
+
+<py-config>
+  packages = ["matplotlib"]
+</py-config>
+
+<py-script>
+  import js
+  import matplotlib.pyplot as plt
+
+  def plot():
+    x_values = ["Average spent", "Salary", "Money saved"]
+    y_values = []
+    for elm in js.document.getElementsByName("y_values"):
+      y_values.append(int(elm.value))
+    plt.clf()
+    plt.bar(x_values, y_values)
+    plt.plot()
+    display(plt, target="plotDiv", append=False)
+</py-script>
+</body>
+
+</html>
